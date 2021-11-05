@@ -56,6 +56,7 @@ router.delete('/:id', async (req, res) => {
 
 //update request
 router.patch('/:id', async (req, res) => {
+    
     try {
         const client = await Clients.findByIdAndUpdate(req.params.id, req.body)
         if (!client) throw Error('Something went wrong when updating client')
@@ -64,6 +65,23 @@ router.patch('/:id', async (req, res) => {
     } catch(err) {
         res.status(400).json({msg: err})
     } 
+    // const { id } = req.params
+
+    // const { name, email, contact, company } = req.body;
+
+    //  const client = clients.find((client) => client.id == id)
+    
+    // if (name) client.name = name;
+    
+    // if (email) client.email = email
+    
+    // if (contact) client.contact = contact
+
+    //  if (company) client.company = company
+
+
+ 
+    //  res.send(`User with ${id} has been updated`)
 })
 
 module.exports = router
